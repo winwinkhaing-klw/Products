@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products", "Product\Products.csproj", "{68EF3EBF-390C-4AC1-8D05-C5095988F31B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C72005D3-DFD3-40BD-A5FE-9E39D3B9AA1A}"
+	ProjectSection(SolutionItems) = preProject
+		Products.ruleset = Products.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

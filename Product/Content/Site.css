@@ -8,7 +8,13 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.modal-footer{
+    justify-content:center;
+    text-align:center;
+}
+.modal-body {
+    justify-content: center;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

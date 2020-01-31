@@ -2,8 +2,11 @@ namespace Product.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class initialdatabase : DbMigration
+
+    /// <summary>
+    /// initialdatabase migration for products table.
+    /// </summary>
+    public partial class Initialdatabase : DbMigration
     {
         public override void Up()
         {
@@ -17,9 +20,8 @@ namespace Product.Migrations
                         AddedDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
-            
         }
-        
+
         public override void Down()
         {
             DropTable("dbo.Products");

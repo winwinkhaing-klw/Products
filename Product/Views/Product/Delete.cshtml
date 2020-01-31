@@ -1,5 +1,4 @@
 ﻿@model Product.Models.Products
-
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,13 +12,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Price)
         </dt>
@@ -27,7 +32,6 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.AddedDate)
         </dt>
@@ -35,14 +39,23 @@
         <dd>
             @Html.DisplayFor(model => model.AddedDate)
         </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Edit" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

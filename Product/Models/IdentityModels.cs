@@ -13,6 +13,7 @@ namespace Product.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+
             // Add custom user claims here
             return userIdentity;
         }
@@ -21,7 +22,11 @@ namespace Product.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Products> Products { get; set; }
+
+        public DbSet<Customers> Customers { get; set; }
+
         public ApplicationDbContext()
+
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
@@ -30,5 +35,7 @@ namespace Product.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Product.ViewModels.ProductViewModel> ProductViewModels { get; set; }
     }
 }

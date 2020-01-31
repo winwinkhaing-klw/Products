@@ -1,46 +1,120 @@
 ﻿@model IEnumerable<Product.Models.Products>
-
+   
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
-
+<script>
+    $(function () {
+        $("#dialog").dialog();
+    });
+</script>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddedDate)
-        </th>
-        <th></th>
-    </tr>
+    <thead>
+        <tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <th>
 
+                @Html.DisplayNameFor(model => model.Name)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.Price)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.AddedDate)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.Customers.CompanyName)
+
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.AddedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Customers.CompanyName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id}) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Are you sure you want to delete this user?');", @class = "delete-button" })
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.Id">
+                    Delete
+                </button>
+
+
+                <div style="justify-content:center" class="modal fade col-lg-offset-5 col-sm-3" id="@item.Id"
+                     data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    ×
+                                </button>
+                                <h4 id="modaltitle" class="modal-title">Are you sure to delete @item.Name?</h4>
+                            </div>
+
+
+
+                            <div class="modal-body">
+                                <form action="/Product/DeleteByPost" method="post">
+                                    <input type="hidden" name="Id" value="@item.Id" />
+                                    <input type="submit" value="Delete" class="btn btn-primary button button4">
+                                    <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                                        Cancel
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </td>
+        </tr>
+    }
+        </tbody>
 </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnShowModal").click(function () {
+            $("#loginModal").modal('show');
+        });
+
+        $("#btnHideModal").click(function () {
+            $("#loginModal").modal('hide');
+        });
+    });
+</script> 

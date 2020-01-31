@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Default stylecop settings" Description="This rule set contains all rules (as warnings), with a few specific supressions." ToolsVersion="15.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1032" Action="None" />
+    <Rule Id="CA1062" Action="None" />
+    <Rule Id="CA1303" Action="None" />
+    <Rule Id="CA1812" Action="None" />
+    <Rule Id="CA2007" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA0001" Action="None" />
+    <Rule Id="SA1101" Action="None" />
+    <Rule Id="SA1123" Action="None" />
+    <Rule Id="SA1200" Action="None" />
+    <Rule Id="SA1204" Action="None" />
+    <Rule Id="SA1208" Action="None" />
+    <Rule Id="SA1309" Action="None" />
+    <Rule Id="SA1402" Action="None" />
+    <Rule Id="SA1403" Action="None" />
+    <Rule Id="SA1404" Action="None" />
+    <Rule Id="SA1413" Action="None" />
+    <Rule Id="SA1503" Action="None" />
+    <Rule Id="SA1600" Action="None" />
+    <Rule Id="SA1633" Action="None" />
+    <Rule Id="SA1649" Action="None" />
+  </Rules>
+</RuleSet>
