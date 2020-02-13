@@ -40,5 +40,7 @@
         public string Phone { get; set; }
 
         public string Fax { get; set; }
+
+        public Products Products { get; set; }
     }
 }
